@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="4xj-Rf-yRH">
-                                <rect key="frame" x="46.666666666666657" y="288.66666666666669" width="300" height="300.00000000000006"/>
+                                <rect key="frame" x="46.666666666666657" y="264" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="1Rd-dd-V5l"/>
                                     <constraint firstAttribute="height" constant="300" id="6mP-uC-enQ"/>
@@ -26,11 +26,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="4xj-Rf-yRH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DKb-3l-07w"/>
                             <constraint firstItem="4xj-Rf-yRH" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="x6X-9T-hA3"/>
                         </constraints>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

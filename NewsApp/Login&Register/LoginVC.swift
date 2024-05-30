@@ -23,6 +23,8 @@ class LoginVC: UIViewController {
     let twitterSignButton = UIButton()
     
     let signInToolsStackView = UIStackView()
+    
+    let userDefaults = UserDefaults.standard
         
     
     override func viewDidLoad() {
@@ -213,10 +215,30 @@ class LoginVC: UIViewController {
     
     
     @objc func loginButtonTapped() {
-        
+        guard let email = emailText.text, !email.isEmpty,
+              let password = passwordText.text, !password.isEmpty else {
+            showAlert(message: "email and password can not be empty")
+            return
+        }
+        userDefaults.setValue(true, forKey: "loginPassed")
+        let controller = TabbarVC()
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.modalPresentationStyle = .fullScreen
+        navigation.modalTransitionStyle = .flipHorizontal
+        present(navigation, animated: true)
     }
     
     @objc func registerButtonTapped() {
-        
+        navigationController?.pushViewController(RegisterVC().self, animated: true)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default))
+        present(alert, animated: true)
     }
 }
+
+
+
+
