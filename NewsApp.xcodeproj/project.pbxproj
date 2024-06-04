@@ -19,6 +19,7 @@
 		B8013C6A2C0852E8005B07A7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C692C0852E8005B07A7 /* ProfileVC.swift */; };
 		B8013C6C2C0852FF005B07A7 /* BasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C6B2C0852FF005B07A7 /* BasketVC.swift */; };
 		B80B03392C0A203B004F35B8 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B03382C0A203B004F35B8 /* ApiManager.swift */; };
+		B8398A112C0F8D01006E88E8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8398A102C0F8D01006E88E8 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B8013C692C0852E8005B07A7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B8013C6B2C0852FF005B07A7 /* BasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketVC.swift; sourceTree = "<group>"; };
 		B80B03382C0A203B004F35B8 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		B8398A102C0F8D01006E88E8 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B8013C632C084BF2005B07A7 /* HomeVC.swift */,
+				B8398A102C0F8D01006E88E8 /* CategoryCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				B8013C4E2C0847F0005B07A7 /* SceneDelegate.swift in Sources */,
 				B8013C602C084BD7005B07A7 /* LoginVC.swift in Sources */,
 				B8013C682C0852DA005B07A7 /* SearchVC.swift in Sources */,
+				B8398A112C0F8D01006E88E8 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeVC: UIViewController {
+    
+    var categoryCollectionView = UICollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
