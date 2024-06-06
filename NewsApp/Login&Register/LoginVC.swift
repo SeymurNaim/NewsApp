@@ -9,6 +9,13 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+//    private let logoImage2: UIImageView = {
+//        let imageView = UIImageView()
+//        
+//        return imageView
+//    }()
+    
+    
     let logoImage = UIImageView()
     let emailText = UITextField()
     let passwordText = UITextField()
@@ -33,8 +40,6 @@ class LoginVC: UIViewController {
         
         build()
     }
-
-    
     
     func build() {
         configureLogoImage()
@@ -50,7 +55,6 @@ class LoginVC: UIViewController {
         configurePasswordUnderLine()
     }
 
-   
     func configureLogoImage() {
         logoImage.image = UIImage(named: "Logo!")
         view.addSubview(logoImage)
@@ -88,7 +92,6 @@ class LoginVC: UIViewController {
         passwordText.textAlignment = .left
         stackView.addArrangedSubview(passwordText)
     }
-    
     
     func configureEmailUnderLine() {
         let emailUnderline = UIView()

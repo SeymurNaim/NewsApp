@@ -16,16 +16,16 @@ class TabbarVC: UITabBarController {
         let homeViewController = HomeVC()
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
         
-        let searchViewController = SearchVC()
-        searchViewController.tabBarItem = UITabBarItem(title: "Watch", image: UIImage(systemName: "play.rectangle.on.rectangle"), tag: 1)
+        let watchViewController = SearchVC()
+        watchViewController.tabBarItem = UITabBarItem(title: "Watch", image: UIImage(systemName: "play.rectangle.on.rectangle"), tag: 1)
         
         let basketViewController = BasketVC()
         basketViewController.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(systemName: "basket"), tag: 2)
         
-        let accountViewController = ProfileVC()
-        accountViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 3)
+        let settingsViewController = ProfileVC()
+        settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 3)
         
-        let tabBarList = [homeViewController, searchViewController, basketViewController, accountViewController]
+        let tabBarList = [homeViewController, watchViewController, basketViewController, settingsViewController]
         
         viewControllers = tabBarList.map { UINavigationController(rootViewController: $0) }
     }
