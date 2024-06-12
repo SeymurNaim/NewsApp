@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func mainPageRoot(windowScene: UIWindowScene) {
         window?.windowScene = windowScene
-        window?.rootViewController = LoginVC()
+        window?.rootViewController = HomeVC()
         window?.makeKeyAndVisible()
     }
 

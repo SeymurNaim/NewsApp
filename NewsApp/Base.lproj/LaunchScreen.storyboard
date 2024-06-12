@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="626" height="626"/>
+        <image name="Logo" width="250" height="40"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
