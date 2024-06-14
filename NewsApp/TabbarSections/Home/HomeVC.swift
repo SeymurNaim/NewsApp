@@ -32,7 +32,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        title = "saamdsa"
+        title = "DDX"
         
         setupCollectionView()
         setupContentCollectionView()
@@ -48,6 +48,15 @@ class HomeVC: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(customButtonTapped))
+    }
+    
+    @objc func customButtonTapped() {
+        
     }
     
     private func setupCollectionView() {
@@ -61,7 +70,7 @@ class HomeVC: UIViewController {
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(categoryCollectionView)
         NSLayoutConstraint.activate([
-            categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 164),
+            categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 104),
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             categoryCollectionView.heightAnchor.constraint(equalToConstant: 44)
@@ -85,6 +94,8 @@ class HomeVC: UIViewController {
             contentCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+ 
+    let categories = ["World", "Daily", "Cnn", "Times", "US" ]
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -94,21 +105,20 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         } else if collectionView == contentCollectionView {
             return 5
         }
-        return 5
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == categoryCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-            cell.categoryLabel.text = "World"
+            cell.categoryLabel.text = categories[indexPath.item]
             return cell
 
         } else if collectionView == contentCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as! ContentCell
-            cell.carEngineLabel.text = "123"
-            cell.carModelLabel.text = "mase"
-            cell.carNameLabel.text = "Biden"
-            cell.carPriceLabel.text = "2342"
+            cell.newsImage.image = UIImage(named: "Logo!")
+            cell.newsTitle.text = "adasda dkasdksda  jkandkjnas kjsdlkjfs dfkjsldkfjs ldkfjsldkf"
+            cell.publishedDate.text = "3h ago"
             cell.layer.cornerRadius = 8
             
             return cell
@@ -122,7 +132,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         if collectionView == categoryCollectionView {
             return CGSize(width: 100, height: 24)
         } else if collectionView == contentCollectionView {
-            return CGSize(width: 364, height: 200)
+            return CGSize(width: 364, height: 360)
         }
         
         return CGSize()
@@ -132,5 +142,5 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
 
 
 #Preview() {
-    HomeVC()
+    TabbarVC()
 }

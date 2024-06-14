@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func mainPageRoot(windowScene: UIWindowScene) {
         window?.windowScene = windowScene
-        window?.rootViewController = HomeVC()
+        window?.rootViewController = TabbarVC()
         window?.makeKeyAndVisible()
     }
 

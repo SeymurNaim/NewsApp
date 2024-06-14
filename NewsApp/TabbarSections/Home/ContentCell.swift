@@ -8,11 +8,44 @@
 import UIKit
 
 class ContentCell: UICollectionViewCell {
-    let carImage = UIImageView()
-    let carNameLabel = UILabel()
-    let carModelLabel = UILabel()
-    let carPriceLabel = UILabel()
-    let carEngineLabel = UILabel()
+    let newsImage: UIImageView = {
+        let image = UIImageView()
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 14
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+
+    
+    let newsTitle: UILabel = {
+        let title = UILabel()
+        title.font = UIFont.systemFont(ofSize: 24, weight: .black)
+        title.numberOfLines = 0
+        title.adjustsFontSizeToFitWidth = true
+        title.textColor = .black
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        return title
+    }()
+    
+    let publishedDate: UILabel = {
+        let date = UILabel()
+        date.font = UIFont.systemFont(ofSize: 20, weight: .light)
+        date.numberOfLines = 0
+        date.adjustsFontSizeToFitWidth = true
+        date.textColor = .systemGray
+        date.translatesAutoresizingMaskIntoConstraints = false
+        
+        return date
+    }()
+    
+    let dotsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     
 
     override init(frame: CGRect) {
@@ -26,72 +59,40 @@ class ContentCell: UICollectionViewCell {
     }
 
     private func setupViews() {
-        carPriceLabel.numberOfLines = 0
-        carNameLabel.font = UIFont.systemFont(ofSize: 34, weight: .black)
-        carNameLabel.adjustsFontSizeToFitWidth = true
-        carPriceLabel.font = UIFont.systemFont(ofSize: 36, weight: .light)
-        carPriceLabel.textColor = .blue
-        carModelLabel.textColor = .systemGray
-        carEngineLabel.textAlignment = .right
-        carImage.translatesAutoresizingMaskIntoConstraints = false
-        carNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        carPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-        carModelLabel.translatesAutoresizingMaskIntoConstraints = false
-        carEngineLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(newsTitle)
+        addSubview(newsImage)
+        addSubview(publishedDate)
+        addSubview(dotsButton)
 
-        contentView.addSubview(carImage)
-        contentView.addSubview(carNameLabel)
-        contentView.addSubview(carPriceLabel)
-        contentView.addSubview(carModelLabel)
-        contentView.addSubview(carEngineLabel)
         
-        let engineTitleLabel = UILabel()
-        engineTitleLabel.text = "Engine:"
-        engineTitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        engineTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(engineTitleLabel)
-        
-        let priceTitleLabel = UILabel()
-        priceTitleLabel.text = "/ month"
-        priceTitleLabel.textColor = .systemGray
-        priceTitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        priceTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(priceTitleLabel)
-
         NSLayoutConstraint.activate([
-            carImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            carImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            carImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            carImage.heightAnchor.constraint(equalToConstant: 180),
-
-            carNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 28),
-            carNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28),
-            carNameLabel.widthAnchor.constraint(equalToConstant: 180),
-            carNameLabel.heightAnchor.constraint(equalToConstant: 40),
+            newsImage.topAnchor.constraint(equalTo: topAnchor),
+            newsImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            newsImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            newsImage.heightAnchor.constraint(equalToConstant: 200),
             
-            carModelLabel.topAnchor.constraint(equalTo: carNameLabel.bottomAnchor),
-            carModelLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28),
-            carModelLabel.widthAnchor.constraint(equalToConstant: 64),
-            carModelLabel.heightAnchor.constraint(equalToConstant: 32),
             
-            carEngineLabel.topAnchor.constraint(equalTo: carModelLabel.bottomAnchor),
-            carEngineLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28),
-            carEngineLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -28),
-
-            carPriceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 28),
-            carPriceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -28),
-            carPriceLabel.heightAnchor.constraint(equalToConstant: 44),
+            newsTitle.topAnchor.constraint(equalTo: newsImage.bottomAnchor),
+            newsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            newsTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            newsTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -44),
             
-            engineTitleLabel.topAnchor.constraint(equalTo: carModelLabel.bottomAnchor),
-            engineTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28),
+            publishedDate.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            publishedDate.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             
-            priceTitleLabel.topAnchor.constraint(equalTo: carPriceLabel.bottomAnchor),
-            priceTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -28)
-            
+            dotsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dotsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
+   
+
     }
     
 //    func configureCell(withImage image: String) {
 //        showImage(image: image, imageView: carImage)
 //    }
+}
+
+
+#Preview() {
+    HomeVC()
 }
