@@ -66,7 +66,7 @@ class ContentCell: UICollectionViewCell {
 
         
         NSLayoutConstraint.activate([
-            newsImage.topAnchor.constraint(equalTo: topAnchor),
+            newsImage.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             newsImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             newsImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             newsImage.heightAnchor.constraint(equalToConstant: 200),
@@ -87,12 +87,12 @@ class ContentCell: UICollectionViewCell {
 
     }
     
-//    func configureCell(withImage image: String) {
-//        showImage(image: image, imageView: carImage)
-//    }
+    func configureCell(withImage image: String) {
+        showImage(image: image, imageView: newsImage)
+    }
 }
 
 
-#Preview() {
-    HomeVC()
-}
+//#Preview() {
+//    HomeVC()
+//}
