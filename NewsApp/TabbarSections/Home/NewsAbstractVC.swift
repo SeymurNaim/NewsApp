@@ -10,65 +10,63 @@ import UIKit
 class NewsAbstractVC: UIViewController {
     
     var selectedData: Results?
-    
-    lazy var newsTitle: UILabel? = {
-        let title = UILabel()
-        title.text = "\(selectedData?.title)"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.numberOfLines = 0
-        title.textAlignment = .center
-        return title
-    }()
-    
-    lazy var newsImage: UIImageView? = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
-    
-    lazy var newsAbstract: UILabel? = {
-        let abstract = UILabel()
-        abstract.translatesAutoresizingMaskIntoConstraints = false
-        abstract.numberOfLines = 0
-        return abstract
-    }()
+    var tableView: UITableView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        configure()
+        configureNavigationBar()
+        configureTableView()
     }
     
-    
-    private func configure() {
-        view.addSubview(newsTitle!)
-        view.addSubview(newsImage!)
-        view.addSubview(newsAbstract!)
+    private func configureNavigationBar() {
+        let saveButton = UIBarButtonItem(image: UIImage(systemName: "bookmark"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(saveButtonTapped))
         
-        NSLayoutConstraint.activate([
-            newsTitle!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            newsTitle!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            newsTitle!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            newsTitle!.heightAnchor.constraint(equalToConstant: 200),
-            
-            newsImage!.topAnchor.constraint(equalTo: newsTitle!.bottomAnchor, constant: 16),
-            newsImage!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            newsImage!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            newsImage!.heightAnchor.constraint(equalToConstant: 200),
-            
-            newsAbstract!.topAnchor.constraint(equalTo: newsImage!.bottomAnchor, constant: 16),
-            newsAbstract!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            newsAbstract!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            newsAbstract!.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: "person.2"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(shareButtonTapped))
+        
+        navigationItem.rightBarButtonItems = [saveButton, shareButton]
     }
     
-
-  
-
+    private func configureTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(AbstractCell.self, forCellReuseIdentifier: "AbstractCell")
+        view.addSubview(tableView)
+    }
+    
+    @objc func saveButtonTapped() {
+        // Kaydetme işlemleri burada yapılacak
+    }
+    
+    @objc func shareButtonTapped() {
+        // Paylaşma işlemleri burada yapılacak
+    }
 }
 
+extension NewsAbstractVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedData == nil ? 0 : 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AbstractCell", for: indexPath) as! AbstractCell
+        cell.newsTitle.text = "\(selectedData?.title ?? "")"
+        cell.newsAbstract.text = "\(selectedData?.abstract ?? "")"
+        cell.publishedDate.text = "\(selectedData?.published_date ?? "")"
+        
+        if let data = selectedData {
+            cell.configure(with: data)
+        }
+        
+        return cell
+    }
+}
 
 

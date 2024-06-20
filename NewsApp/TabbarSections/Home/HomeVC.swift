@@ -144,11 +144,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
             }
         } else if collectionView == contentCollectionView {
             let selectedIndexx = indexPath.item
-            NewsAbstractVC().selectedData = data?.results[selectedIndexx]
             let vc = NewsAbstractVC()
+            vc.selectedData = data?.results[selectedIndexx]
             navigationController?.show(vc, sender: nil)
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
