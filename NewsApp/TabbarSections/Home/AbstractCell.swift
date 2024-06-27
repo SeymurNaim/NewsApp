@@ -98,7 +98,7 @@ class AbstractCell: UITableViewCell {
         ])
     }
     
-    func configure(with data: Results) {
+    func configure(with data: Resultss) {
         newsTitle.text = data.title
         newsAbstract.text = data.abstract
         publishedDate.text = data.published_date

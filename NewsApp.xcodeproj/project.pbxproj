@@ -25,6 +25,9 @@
 		B8855F3D2C2D569A0086687F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F3C2C2D569A0086687F /* Model.swift */; };
 		B8855F3F2C2D57BF0086687F /* WatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F3E2C2D57BF0086687F /* WatchVC.swift */; };
 		B8855F432C2D89CF0086687F /* SearchContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F422C2D89CF0086687F /* SearchContentCell.swift */; };
+		B8855F462C2D9EEF0086687F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B8855F452C2D9EEF0086687F /* RealmSwift */; };
+		B8855F482C2DDC700086687F /* SavedNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F472C2DDC700086687F /* SavedNews.swift */; };
+		B8855F4A2C2DDF0E0086687F /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F492C2DDF0E0086687F /* BasketCell.swift */; };
 		B8E9617F2C11AF88000FA20B /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9617E2C11AF88000FA20B /* NewsModel.swift */; };
 		B8E961872C11EE3B000FA20B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B8E961862C11EE3B000FA20B /* Alamofire */; };
 		B8E961892C11EE3B000FA20B /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B8E961882C11EE3B000FA20B /* AlamofireDynamic */; };
@@ -57,6 +60,8 @@
 		B8855F3C2C2D569A0086687F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B8855F3E2C2D57BF0086687F /* WatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchVC.swift; sourceTree = "<group>"; };
 		B8855F422C2D89CF0086687F /* SearchContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentCell.swift; sourceTree = "<group>"; };
+		B8855F472C2DDC700086687F /* SavedNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNews.swift; sourceTree = "<group>"; };
+		B8855F492C2DDF0E0086687F /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
 		B8E9617E2C11AF88000FA20B /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B8EABA812C21EC2C00442C0D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8EABA832C22282000442C0D /* NewsAbstractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAbstractVC.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8855F462C2D9EEF0086687F /* RealmSwift in Frameworks */,
 				B8EABA802C21EBB500442C0D /* Kingfisher in Frameworks */,
 				B8E961872C11EE3B000FA20B /* Alamofire in Frameworks */,
 				B8E961892C11EE3B000FA20B /* AlamofireDynamic in Frameworks */,
@@ -144,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				B8013C6B2C0852FF005B07A7 /* BasketVC.swift */,
+				B8855F492C2DDF0E0086687F /* BasketCell.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -187,6 +194,7 @@
 				B8FBBDCC2C16C6CE0090723C /* Helper.swift */,
 				B80B03382C0A203B004F35B8 /* ApiManager.swift */,
 				B8EABA812C21EC2C00442C0D /* UIView.swift */,
+				B8855F472C2DDC700086687F /* SavedNews.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 				B8E961862C11EE3B000FA20B /* Alamofire */,
 				B8E961882C11EE3B000FA20B /* AlamofireDynamic */,
 				B8EABA7F2C21EBB500442C0D /* Kingfisher */,
+				B8855F452C2D9EEF0086687F /* RealmSwift */,
 			);
 			productName = NewsApp;
 			productReference = B8013C482C0847F0005B07A7 /* NewsApp.app */;
@@ -243,6 +252,7 @@
 			packageReferences = (
 				B8E961852C11EE3B000FA20B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B8EABA7E2C21EBB500442C0D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = B8013C492C0847F0005B07A7 /* Products */;
 			projectDirPath = "";
@@ -283,8 +293,10 @@
 				B8EABA842C22282000442C0D /* NewsAbstractVC.swift in Sources */,
 				B8013C6A2C0852E8005B07A7 /* ProfileVC.swift in Sources */,
 				B8EABA822C21EC2C00442C0D /* UIView.swift in Sources */,
+				B8855F4A2C2DDF0E0086687F /* BasketCell.swift in Sources */,
 				B8855F432C2D89CF0086687F /* SearchContentCell.swift in Sources */,
 				B8013C4E2C0847F0005B07A7 /* SceneDelegate.swift in Sources */,
+				B8855F482C2DDC700086687F /* SavedNews.swift in Sources */,
 				B8013C602C084BD7005B07A7 /* LoginVC.swift in Sources */,
 				B8855F3D2C2D569A0086687F /* Model.swift in Sources */,
 				B8855F3B2C2D48250086687F /* Video.swift in Sources */,
@@ -504,6 +516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.50.0;
+			};
+		};
 		B8E961852C11EE3B000FA20B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -523,6 +543,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B8855F452C2D9EEF0086687F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		B8E961862C11EE3B000FA20B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8E961852C11EE3B000FA20B /* XCRemoteSwiftPackageReference "Alamofire" */;

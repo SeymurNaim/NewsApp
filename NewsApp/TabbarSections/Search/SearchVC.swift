@@ -10,8 +10,8 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-    var newsData: [Results] = []
-    var filteredNews: [Results] = []
+    var newsData: [Resultss] = []
+    var filteredNews: [Resultss] = []
 
     var searchBar: UISearchBar = {
         var search = UISearchBar()
@@ -65,7 +65,7 @@ class SearchVC: UIViewController {
          let categories: [TopStoryCategory] = [.world, .usa, .science, .arts]
          let dispatchGroup = DispatchGroup()
 
-         var allNewsResults: [Results] = []
+         var allNewsResults: [Resultss] = []
 
          categories.forEach { category in
              dispatchGroup.enter()
@@ -109,5 +109,12 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UISearchBarDeleg
             filteredNews = newsData.filter { $0.title?.contains(searchText) ?? false }
         }
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndexx = indexPath.item
+        let vc = NewsAbstractVC()
+        vc.selectedData = filteredNews[selectedIndexx]
+        navigationController?.show(vc, sender: nil)
     }
 }

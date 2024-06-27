@@ -14,10 +14,10 @@ struct NewsModel: Codable {
     let last_updated: String
     let section: String
     let num_results: Int
-    let results: [Results]
+    let results: [Resultss]
 }
 
-struct Results: Codable {
+struct Resultss: Codable {
     let section: String?
 //    let subsection: String?
     let title: String?
