@@ -45,36 +45,54 @@ class NewsAbstractVC: UIViewController {
     }
 
     @objc func saveButtonTapped() {
-        guard let data = selectedData else { return }
-
-        let realm = try! Realm()
-        
-        if let existingItem = realm.objects(SavedNews.self).filter("title == %@", data.title ?? "").first {
-            try! realm.write {
-                realm.delete(existingItem)
-            }
-            saveButton.image = UIImage(systemName: "bookmark")
+        if !UserDefaults.standard.bool(forKey: "loginPassed") {
+            showLoginAlert()
         } else {
-            let newsItem = SavedNews()
-            newsItem.title = data.title ?? ""
-            newsItem.publishedDate = data.published_date ?? ""
-            newsItem.imageURL = data.multimedia?.first?.url ?? ""
+            guard let data = selectedData else { return }
 
-            try! realm.write {
-                realm.add(newsItem)
+            let realm = try! Realm()
+
+            if let existingItem = realm.objects(SavedNews.self).filter("title == %@", data.title ?? "").first {
+                try! realm.write {
+                    realm.delete(existingItem)
+                }
+                saveButton.image = UIImage(systemName: "bookmark")
+            } else {
+                let newsItem = SavedNews()
+                newsItem.title = data.title ?? ""
+                newsItem.publishedDate = data.published_date ?? ""
+                newsItem.imageURL = data.multimedia?.first?.url ?? ""
+
+                try! realm.write {
+                    realm.add(newsItem)
+                }
+
+                let alert = UIAlertController(title: "Alert", message: "News Saved", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                saveButton.image = UIImage(systemName: "bookmark.fill")
             }
-            saveButton.image = UIImage(systemName: "bookmark.fill")
+            NotificationCenter.default.post(name: NSNotification.Name("NewsSaved"), object: nil)
         }
-        NotificationCenter.default.post(name: NSNotification.Name("NewsSaved"), object: nil)
-
-        let alert = UIAlertController(title: "Durum", message: "Haber durumu güncellendi.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 
     @objc func shareButtonTapped() {
-        // Paylaşma işlemleri burada yapılacak
     }
+
+    private func showLoginAlert() {
+        let alert = UIAlertController(title: "Login Required", message: "You need to login to save news.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { _ in
+            let loginVC = LoginVC()
+            let navController = UINavigationController(rootViewController: loginVC)
+            UIApplication.shared.windows.first?.rootViewController = navController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }))
+
+        present(alert, animated: true, completion: nil)
+    }
+
 
     private func updateSaveButtonState() {
         guard let data = selectedData else { return }
@@ -106,6 +124,3 @@ extension NewsAbstractVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-
-

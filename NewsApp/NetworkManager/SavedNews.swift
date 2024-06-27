@@ -12,4 +12,5 @@ class SavedNews: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var publishedDate: String = ""
     @objc dynamic var imageURL: String = ""
+   // @objc dynamic var abstract: String = ""
 }

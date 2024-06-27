@@ -16,6 +16,7 @@ class BasketVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "Saved News"
         configureTableView()
         fetchSavedNews()
         
@@ -51,6 +52,7 @@ extension BasketVC: UITableViewDelegate, UITableViewDataSource {
         if let newsItem = savedNews?[indexPath.row] {
             cell.newsTitle.text = newsItem.title
             cell.configureCell(withImage: newsItem.imageURL)
+            cell.publishedDate.text = newsItem.publishedDate
         }
         return cell
     }

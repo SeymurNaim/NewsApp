@@ -16,13 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        if UserDefaults.standard.bool(forKey: "loginPassed") {
-            mainPageRoot(windowScene: windowScene)
-        } else {
-            window?.windowScene = windowScene
-            window?.rootViewController = UINavigationController(rootViewController: LoginVC())
-            window?.makeKeyAndVisible()
-        }
+        mainPageRoot(windowScene: windowScene)
     }
     
     func mainPageRoot(windowScene: UIWindowScene) {
