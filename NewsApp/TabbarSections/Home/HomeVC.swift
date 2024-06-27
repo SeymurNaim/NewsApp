@@ -43,11 +43,11 @@ class HomeVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(customButtonTapped))
+                                                            action: #selector(searchButtonTapped))
     }
     
-    @objc func customButtonTapped() {
-        // İşlem eklenecek
+    @objc func searchButtonTapped() {
+        navigationController?.pushViewController(SearchVC(), animated: true)
     }
     
     private func setupCollectionView() {

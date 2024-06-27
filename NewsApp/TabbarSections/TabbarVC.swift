@@ -16,7 +16,7 @@ class TabbarVC: UITabBarController {
         let homeViewController = HomeVC()
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
         
-        let watchViewController = SearchVC()
+        let watchViewController = WatchVC()
         watchViewController.tabBarItem = UITabBarItem(title: "Watch", image: UIImage(systemName: "play.rectangle.on.rectangle"), tag: 1)
         
         let basketViewController = BasketVC()
