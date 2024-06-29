@@ -22,7 +22,7 @@ class TabbarVC: UITabBarController {
         let basketViewController = BasketVC()
         basketViewController.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(systemName: "basket"), tag: 2)
         
-        let settingsViewController = ProfileVC()
+        let settingsViewController = SettingsVC()
         settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 3)
         
         let tabBarList = [homeViewController, watchViewController, basketViewController, settingsViewController]

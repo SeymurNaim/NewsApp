@@ -76,7 +76,7 @@ class LoginVC: UIViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 44),
+            stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 32),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             stackView.heightAnchor.constraint(equalToConstant: 140)
@@ -164,7 +164,7 @@ class LoginVC: UIViewController {
         staticLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            staticLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 64),
+            staticLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 44),
             staticLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             staticLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             staticLabel.heightAnchor.constraint(equalToConstant: 24)
@@ -207,7 +207,7 @@ class LoginVC: UIViewController {
         staticLabel2.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            staticLabel2.topAnchor.constraint(equalTo: signInToolsStackView.bottomAnchor, constant: 44),
+            staticLabel2.topAnchor.constraint(equalTo: signInToolsStackView.bottomAnchor, constant: 24),
             staticLabel2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             staticLabel2.widthAnchor.constraint(equalToConstant: 180),
             staticLabel2.heightAnchor.constraint(equalToConstant: 24)

@@ -85,9 +85,7 @@ class NewsAbstractVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { _ in
             let loginVC = LoginVC()
-            let navController = UINavigationController(rootViewController: loginVC)
-            UIApplication.shared.windows.first?.rootViewController = navController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            self.navigationController?.show(loginVC, sender: nil)
         }))
 
         present(alert, animated: true, completion: nil)

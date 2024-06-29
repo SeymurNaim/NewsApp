@@ -16,9 +16,10 @@
 		B8013C642C084BF2005B07A7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C632C084BF2005B07A7 /* HomeVC.swift */; };
 		B8013C662C085211005B07A7 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C652C085211005B07A7 /* TabbarVC.swift */; };
 		B8013C682C0852DA005B07A7 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C672C0852DA005B07A7 /* SearchVC.swift */; };
-		B8013C6A2C0852E8005B07A7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C692C0852E8005B07A7 /* ProfileVC.swift */; };
+		B8013C6A2C0852E8005B07A7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C692C0852E8005B07A7 /* SettingsVC.swift */; };
 		B8013C6C2C0852FF005B07A7 /* BasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C6B2C0852FF005B07A7 /* BasketVC.swift */; };
 		B80B03392C0A203B004F35B8 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B03382C0A203B004F35B8 /* ApiManager.swift */; };
+		B828A47F2C309BB900988B4D /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828A47E2C309BB900988B4D /* AccountVC.swift */; };
 		B8398A112C0F8D01006E88E8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8398A102C0F8D01006E88E8 /* CategoryCell.swift */; };
 		B8855F392C2D41F80086687F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F382C2D41F80086687F /* Constants.swift */; };
 		B8855F3B2C2D48250086687F /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F3A2C2D48250086687F /* Video.swift */; };
@@ -51,9 +52,10 @@
 		B8013C632C084BF2005B07A7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B8013C652C085211005B07A7 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		B8013C672C0852DA005B07A7 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		B8013C692C0852E8005B07A7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		B8013C692C0852E8005B07A7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		B8013C6B2C0852FF005B07A7 /* BasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketVC.swift; sourceTree = "<group>"; };
 		B80B03382C0A203B004F35B8 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		B828A47E2C309BB900988B4D /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountVC.swift; path = NewsApp/TabbarSections/Basket/AccountVC.swift; sourceTree = SOURCE_ROOT; };
 		B8398A102C0F8D01006E88E8 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		B8855F382C2D41F80086687F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8855F3A2C2D48250086687F /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -155,12 +157,13 @@
 			path = Basket;
 			sourceTree = "<group>";
 		};
-		B8013C712C08541A005B07A7 /* Profile */ = {
+		B8013C712C08541A005B07A7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B8013C692C0852E8005B07A7 /* ProfileVC.swift */,
+				B8013C692C0852E8005B07A7 /* SettingsVC.swift */,
+				B828A47E2C309BB900988B4D /* AccountVC.swift */,
 			);
-			path = Profile;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B8013C722C08542A005B07A7 /* TabbarSections */ = {
@@ -171,7 +174,7 @@
 				B8855F372C2D41C80086687F /* Watch */,
 				B8013C6F2C085401005B07A7 /* Search */,
 				B8013C702C08540F005B07A7 /* Basket */,
-				B8013C712C08541A005B07A7 /* Profile */,
+				B8013C712C08541A005B07A7 /* Settings */,
 			);
 			path = TabbarSections;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E9617F2C11AF88000FA20B /* NewsModel.swift in Sources */,
+				B828A47F2C309BB900988B4D /* AccountVC.swift in Sources */,
 				B8FBBDCD2C16C6CE0090723C /* Helper.swift in Sources */,
 				B8013C4C2C0847F0005B07A7 /* AppDelegate.swift in Sources */,
 				B8013C642C084BF2005B07A7 /* HomeVC.swift in Sources */,
@@ -291,7 +295,7 @@
 				B8FBBDCB2C134B8E0090723C /* ContentCell.swift in Sources */,
 				B8013C6C2C0852FF005B07A7 /* BasketVC.swift in Sources */,
 				B8EABA842C22282000442C0D /* NewsAbstractVC.swift in Sources */,
-				B8013C6A2C0852E8005B07A7 /* ProfileVC.swift in Sources */,
+				B8013C6A2C0852E8005B07A7 /* SettingsVC.swift in Sources */,
 				B8EABA822C21EC2C00442C0D /* UIView.swift in Sources */,
 				B8855F4A2C2DDF0E0086687F /* BasketCell.swift in Sources */,
 				B8855F432C2D89CF0086687F /* SearchContentCell.swift in Sources */,
