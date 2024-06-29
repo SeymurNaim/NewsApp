@@ -22,6 +22,11 @@ class BasketVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(fetchSavedNews), name: NSNotification.Name("NewsSaved"), object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     deinit {
         NotificationCenter.default.removeObserver(self)

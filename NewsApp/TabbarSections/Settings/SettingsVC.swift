@@ -202,12 +202,20 @@ class SettingsVC: UIViewController {
         title = "Settings"
         build()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if UserDefaults.standard.bool(forKey: "loginPassed") {
             loginOrRegisterStackView.isHidden = true
+            accountStackView.isHidden = false
+            
         } else {
             accountStackView.isHidden = true
+            loginOrRegisterStackView.isHidden = false
         }
     }
+    
     
     
     private func build() {

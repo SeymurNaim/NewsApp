@@ -64,7 +64,7 @@ class RegisterVC: UIViewController {
             stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalToConstant: 320)
+            stackView.heightAnchor.constraint(equalToConstant: 280)
         ])
     }
     
@@ -153,7 +153,7 @@ class RegisterVC: UIViewController {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 44),
+            signUpButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 32),
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 88),
             signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -88),
             signUpButton.heightAnchor.constraint(equalToConstant: 44)
@@ -161,7 +161,8 @@ class RegisterVC: UIViewController {
     }
     
     @objc func signUpButtonTapped() {
-        
+        let vc = LoginVC()
+        navigationController?.show(vc, sender: nil)
     }
     
     func configureSecondStaticLabel() {
@@ -172,7 +173,7 @@ class RegisterVC: UIViewController {
         secondStaticLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            secondStaticLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 64),
+            secondStaticLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 32),
             secondStaticLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             secondStaticLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             secondStaticLabel.heightAnchor.constraint(equalToConstant: 24)
