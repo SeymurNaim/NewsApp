@@ -12,20 +12,37 @@ class BasketVC: UIViewController {
 
     var tableView: UITableView!
     var savedNews: Results<SavedNews>?
-
+    
+    let emptyView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    let emptyImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "BasketImage")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Saved News"
         configureTableView()
         fetchSavedNews()
+        configureEmptyView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(fetchSavedNews), name: NSNotification.Name("NewsSaved"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        fetchSavedNews()
     }
 
     deinit {
@@ -39,11 +56,33 @@ class BasketVC: UIViewController {
         tableView.register(BasketCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
+    
+    private func configureEmptyView() {
+        view.addSubview(emptyView)
+        emptyView.addSubview(emptyImage)
+
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: view.topAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            emptyImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyImage.heightAnchor.constraint(equalToConstant: 400),
+            emptyImage.widthAnchor.constraint(equalToConstant: 360)
+        ])
+    }
 
     @objc private func fetchSavedNews() {
         let realm = try! Realm()
         savedNews = realm.objects(SavedNews.self)
         tableView.reloadData()
+        checkIfEmpty()
+    }
+    
+    private func checkIfEmpty() {
+        emptyView.isHidden = (savedNews?.isEmpty == false)
     }
 }
 
@@ -74,11 +113,11 @@ extension BasketVC: UITableViewDelegate, UITableViewDataSource {
                     realm.delete(newsItemToDelete)
                 }
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                checkIfEmpty()
             }
         }
     }
 }
-
 
 
 
