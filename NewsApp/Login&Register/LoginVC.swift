@@ -216,20 +216,29 @@ class LoginVC: UIViewController {
     }
     
     
+
     
-    @objc func loginButtonTapped() {
-        guard let email = emailText.text, !email.isEmpty,
-              let password = passwordText.text, !password.isEmpty else {
-            showAlert(message: "email and password can not be empty")
-            return
-        }
-        userDefaults.setValue(true, forKey: "loginPassed")
-        let controller = TabbarVC()
-//        let navigation = UINavigationController(rootViewController: controller)
-        controller.modalPresentationStyle = .fullScreen
-        controller.modalTransitionStyle = .flipHorizontal
-        present(controller, animated: true)
-    }
+    @objc private func loginButtonTapped() {
+         guard let username = emailText.text, !username.isEmpty,
+               let password = passwordText.text, !password.isEmpty else {
+             showAlert(message: "email and password can not be empty")
+             return
+         }
+         
+         let savedUsername = UserDefaults.standard.string(forKey: "email")
+         let savedPassword = UserDefaults.standard.string(forKey: "password")
+         
+         if username == savedUsername && password == savedPassword {
+             let controller = TabbarVC()
+             controller.modalPresentationStyle = .fullScreen
+             controller.modalTransitionStyle = .flipHorizontal
+             present(controller, animated: true)
+             userDefaults.setValue(true, forKey: "loginPassed")
+
+         } else {
+             showAlert(message: "Invalid username or password.")
+         }
+     }
     
     @objc func registerButtonTapped() {
         navigationController?.pushViewController(RegisterVC().self, animated: true)

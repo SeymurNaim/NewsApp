@@ -161,9 +161,32 @@ class RegisterVC: UIViewController {
     }
     
     @objc func signUpButtonTapped() {
+        guard let username = usernameTextField.text, !username.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty,
+              let email = emailTextField.text, !email.isEmpty,
+              let phone = phoneTextField.text, !phone.isEmpty else {
+
+            showAlert(message: "Please fill in all fields.")
+            return
+        }
+        
+        UserDefaults.standard.set(username, forKey: "username")
+        UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(phone, forKey: "phone")
+                
         let vc = LoginVC()
         navigationController?.show(vc, sender: nil)
+        showAlert(message: "Registration successful.")
+
     }
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+
     
     func configureSecondStaticLabel() {
         secondStaticLabel.text = "By signing up to DDX app you are accepting our"
