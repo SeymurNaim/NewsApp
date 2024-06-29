@@ -225,10 +225,10 @@ class LoginVC: UIViewController {
         }
         userDefaults.setValue(true, forKey: "loginPassed")
         let controller = TabbarVC()
-        let navigation = UINavigationController(rootViewController: controller)
-        navigation.modalPresentationStyle = .fullScreen
-        navigation.modalTransitionStyle = .flipHorizontal
-        present(navigation, animated: true)
+//        let navigation = UINavigationController(rootViewController: controller)
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .flipHorizontal
+        present(controller, animated: true)
     }
     
     @objc func registerButtonTapped() {
@@ -242,3 +242,7 @@ class LoginVC: UIViewController {
     }
 }
 
+
+//#Preview() {
+//    LoginVC()
+//}
