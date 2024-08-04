@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18158EAA2C5FCF0E0029D229 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 18158EA92C5FCF0E0029D229 /* Realm */; };
 		B8013C4C2C0847F0005B07A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C4B2C0847F0005B07A7 /* AppDelegate.swift */; };
 		B8013C4E2C0847F0005B07A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8013C4D2C0847F0005B07A7 /* SceneDelegate.swift */; };
 		B8013C552C0847F2005B07A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8013C542C0847F2005B07A7 /* Assets.xcassets */; };
@@ -26,7 +27,6 @@
 		B8855F3D2C2D569A0086687F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F3C2C2D569A0086687F /* Model.swift */; };
 		B8855F3F2C2D57BF0086687F /* WatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F3E2C2D57BF0086687F /* WatchVC.swift */; };
 		B8855F432C2D89CF0086687F /* SearchContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F422C2D89CF0086687F /* SearchContentCell.swift */; };
-		B8855F462C2D9EEF0086687F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B8855F452C2D9EEF0086687F /* RealmSwift */; };
 		B8855F482C2DDC700086687F /* SavedNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F472C2DDC700086687F /* SavedNews.swift */; };
 		B8855F4A2C2DDF0E0086687F /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8855F492C2DDF0E0086687F /* BasketCell.swift */; };
 		B8E9617F2C11AF88000FA20B /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9617E2C11AF88000FA20B /* NewsModel.swift */; };
@@ -77,9 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8855F462C2D9EEF0086687F /* RealmSwift in Frameworks */,
 				B8EABA802C21EBB500442C0D /* Kingfisher in Frameworks */,
 				B8E961872C11EE3B000FA20B /* Alamofire in Frameworks */,
+				18158EAA2C5FCF0E0029D229 /* Realm in Frameworks */,
 				B8E961892C11EE3B000FA20B /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +222,7 @@
 				B8E961862C11EE3B000FA20B /* Alamofire */,
 				B8E961882C11EE3B000FA20B /* AlamofireDynamic */,
 				B8EABA7F2C21EBB500442C0D /* Kingfisher */,
-				B8855F452C2D9EEF0086687F /* RealmSwift */,
+				18158EA92C5FCF0E0029D229 /* Realm */,
 			);
 			productName = NewsApp;
 			productReference = B8013C482C0847F0005B07A7 /* NewsApp.app */;
@@ -255,7 +255,7 @@
 			packageReferences = (
 				B8E961852C11EE3B000FA20B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B8EABA7E2C21EBB500442C0D /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				18158EA82C5FCF0E0029D229 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = B8013C492C0847F0005B07A7 /* Products */;
 			projectDirPath = "";
@@ -520,12 +520,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		18158EA82C5FCF0E0029D229 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.50.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 		B8E961852C11EE3B000FA20B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -547,10 +547,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B8855F452C2D9EEF0086687F /* RealmSwift */ = {
+		18158EA92C5FCF0E0029D229 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B8855F442C2D9EEE0086687F /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
+			package = 18158EA82C5FCF0E0029D229 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 		B8E961862C11EE3B000FA20B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
